@@ -14,6 +14,9 @@
 
 import 'package:flutter/material.dart';
 
+const kShrineBrown900 = Color(0xFF442C2E);
+const kShrinePink100 = Color(0xFFFEDBD0);
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -34,14 +37,18 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             const SizedBox(height: 80.0),
             Column(
-              children: <Widget>[
-                Image.asset('assets/diamond.png'),
-                const SizedBox(height: 16.0),
-                const Text('SHRINE'),
-              ],
-            ),
+  children: <Widget>[
+    Image.asset('assets/diamond.png'),
+    const SizedBox(height: 16.0),
+    Text(
+      'SHRINE',
+      style: Theme.of(context).textTheme.headlineSmall,
+    ),
+  ],
+),
             const SizedBox(height: 120.0),
             // TODO: Remove filled: true values (103)
+          
             // TODO: Add TextField widgets (101)
             TextField(
   controller: _usernameController,
@@ -74,6 +81,12 @@ TextField(
         _usernameController.clear();
     _passwordController.clear();
       },
+       style: TextButton.styleFrom(
+    foregroundColor: kShrineBrown900,
+    shape: const BeveledRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(7.0)),
+    ),
+  ),
     ),
      // TODO: Add an elevation to NEXT (103)
     // TODO: Add a beveled rectangular border to NEXT (103)
@@ -83,6 +96,14 @@ TextField(
     // TODO: Show the next page (101) 
     Navigator.pop(context);
       },
+      style: ElevatedButton.styleFrom(
+      foregroundColor: kShrineBrown900,
+    backgroundColor: kShrinePink100,
+    elevation: 8.0,
+    shape: const BeveledRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(7.0)),
+    ),
+  ),
     ),
   ],
 ),
